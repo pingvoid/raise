@@ -1,0 +1,61 @@
+[gd_scene load_steps=2 format=3 uid="uid://crkku38875d6"]
+
+[ext_resource type="Script" path="res://scripts/ui/main_menu.gd" id="1_v2l66"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_v2l66")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 48
+theme_override_constants/margin_top = 48
+theme_override_constants/margin_right = 48
+theme_override_constants/margin_bottom = 48
+
+[node name="VBoxLayout" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 64
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxLayout"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "MAINMENU_TITLE"
+horizontal_alignment = 1
+
+[node name="VBoxButtons" type="VBoxContainer" parent="MarginContainer/VBoxLayout"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 24
+
+[node name="Start" type="Button" parent="MarginContainer/VBoxLayout/VBoxButtons"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 24
+text = "MAINMENU_START"
+
+[node name="Settings" type="Button" parent="MarginContainer/VBoxLayout/VBoxButtons"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 24
+text = "MAINMENU_SETTINGS"
+
+[node name="Quit" type="Button" parent="MarginContainer/VBoxLayout/VBoxButtons"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 24
+text = "MAINMENU_QUIT"
+
+[connection signal="button_up" from="MarginContainer/VBoxLayout/VBoxButtons/Start" to="." method="_on_start_button_up"]
+[connection signal="button_up" from="MarginContainer/VBoxLayout/VBoxButtons/Settings" to="." method="_on_settings_button_up"]
+[connection signal="button_up" from="MarginContainer/VBoxLayout/VBoxButtons/Quit" to="." method="_on_quit_button_up"]
